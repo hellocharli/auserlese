@@ -1,18 +1,1 @@
-============================================================
-THIS IS A PLACEHOLDER FILE for the 'main' (template) branch
-============================================================
-
-DO NOT run the bootstrap script using this file directly.
-
-Instructions:
-1. Fork this repository.
-2. Create a working branch (e.g., 'personal').
-3. On your working branch, REPLACE THE ENTIRE CONTENT of this
-   file with YOUR desired PUBLIC SSH key (e.g., the
-   content of ~/.ssh/id_rsa.pub or ~/.ssh/id_ed25519.pub
-   from your Ansible control node).
-4. Ensure the corresponding private key is kept secure
-   and is accessible from your Ansible control node.
-
-Example format (replace with your actual key):
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGEXAMPLEKEYCONTENTGOESHERE user@host
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKBmz8NMHj00/aqy5408OIqTaN3obo2MaWSkvCasZzHo test@example.com

@@ -26,12 +26,12 @@
 # --- Configuration ---
 
 # The username for the Ansible control user to be created.
-ANSIBLE_USER="ansible"
+ANSIBLE_USER="aura"
 
 # The BASE URL for the raw content of YOUR repository fork and branch.
 # Example: https://raw.githubusercontent.com/hellocharli/auserlese/aura
 # --->>> IMPORTANT: Replace this placeholder with your actual URL! <<<---
-REPO_RAW_BASE_URL="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main"
+REPO_RAW_BASE_URL="https://raw.githubusercontent.com/hellocharli/auserlese/aura"
 
 # The filename of the public key file within this repository.
 PUBLIC_KEY_FILENAME="key"
