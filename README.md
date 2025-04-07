@@ -23,9 +23,9 @@ Failure to configure this script properly after forking could potentially grant 
 
 This repository uses a specific structure for safe and effective use. Using separate branches prevents accidental execution with placeholder values and ensures your specific configuration (SSH key, user) is used:
 
-*   **`main` Branch (You are here):** This branch contains the **template** script (`script.sh`) and a placeholder key file (`key`). It uses **placeholder values** for repository URLs and is **NOT intended to be run directly**. Its purpose is to be forked.
+*   **`main` Branch (You are here):** This branch contains the **template** script (`bootstrap.sh`) and a placeholder key file (`key`). It uses **placeholder values** for repository URLs and is **NOT intended to be run directly**. Its purpose is to be forked.
 *   **Your Working Branch (e.g., `personal`, `homelab`, `prod`):** You should create your own branch from `main`. On this branch, you will:
-    *   Edit `script.sh` to set the correct `REPO_RAW_BASE_URL` pointing to *your fork and branch*.
+    *   Edit `bootstrap.sh` to set the correct `REPO_RAW_BASE_URL` pointing to *your fork and branch*.
     *   Populate the `key` file with *your* desired public SSH key.
     *   (Optionally) Customize the `ANSIBLE_USER`.
 
@@ -42,8 +42,8 @@ This repository uses a specific structure for safe and effective use. Using sepa
     git checkout -b personal
     # Or whatever name you prefer (e.g., homelab, prod)
     ```
-4.  **Edit `script.sh`:**
-    *   Open `script.sh` in a text editor.
+4.  **Edit `bootstrap.sh`:**
+    *   Open `bootstrap.sh` in a text editor.
     *   Locate the `CONFIGURATION` section near the top.
     *   **Crucially, change the `REPO_RAW_BASE_URL` variable.** Replace the placeholder `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main` with the correct raw URL pointing to *this working branch* in *your fork*. For example: `https://raw.githubusercontent.com/hellocharli/auserlese/aura/`.
     *   (Optional) Change the `ANSIBLE_USER` variable if you don't want to use `ansible`.
@@ -54,11 +54,11 @@ This repository uses a specific structure for safe and effective use. Using sepa
     *   Paste **your public SSH key** (e.g., the contents of `~/.ssh/id_rsa.pub` or `~/.ssh/id_ed25519.pub` from your Ansible control node) into this file. **Ensure it's the PUBLIC key, not the private key!**
 6.  **Commit and Push:** Save your changes, commit them to your working branch, and push the branch to your fork on GitHub.
     ```bash
-    git add script.sh key
+    git add bootstrap.sh key
     git commit -m "Configure bootstrap script for personal use"
     git push -u origin personal # Push your new branch
     ```
-7.  **Use:** Now you can use the `curl | bash` command as described in the "How to Use" section, making sure the URL points to `script.sh` on the branch you just pushed (`personal` in this example).
+7.  **Use:** Now you can use the `curl | bash` command as described in the "How to Use" section, making sure the URL points to `bootstrap.sh` on the branch you just pushed (`personal` in this example).
 
 ## Prerequisites on Target Machine
 
@@ -70,13 +70,13 @@ This repository uses a specific structure for safe and effective use. Using sepa
 
 ## Usage
 
-1.  **Get the Raw URL:** Navigate to the `script.sh` file **on your configured branch** within **your fork** on GitHub. Click the "Raw" button and copy the URL from your browser's address bar.
+1.  **Get the Raw URL:** Navigate to the `bootstrap.sh` file **on your configured branch** within **your fork** on GitHub. Click the "Raw" button and copy the URL from your browser's address bar.
 
 2.  **Run on Target Machine:** Log into the target Linux machine (as root or a user with `sudo` privileges) and execute:
 
     ```bash
-    # Replace the URL with the Raw URL of script.sh from YOUR configured branch/fork!
-    curl -fsSL https://raw.githubusercontent.com/your-username/repo-name/branch-name/script.sh | sudo bash
+    # Replace the URL with the Raw URL of bootstrap.sh from YOUR configured branch/fork!
+    curl -fsSL https://raw.githubusercontent.com/your-username/repo-name/branch-name/bootstrap.sh | sudo bash
     ```
 
 3.  **Verify:** After the script completes, attempt to SSH into the target machine from your Ansible control node using the configured user and the corresponding private SSH key:
