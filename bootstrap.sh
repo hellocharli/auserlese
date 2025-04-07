@@ -29,7 +29,7 @@
 ANSIBLE_USER="ansible"
 
 # The BASE URL for the raw content of YOUR repository fork and branch.
-# Example: https://raw.githubusercontent.com/YourUsername/YourRepoName/your-branch
+# Example: https://raw.githubusercontent.com/hellocharli/auserlese/aura
 # --->>> IMPORTANT: Replace this placeholder with your actual URL! <<<---
 REPO_RAW_BASE_URL="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main"
 

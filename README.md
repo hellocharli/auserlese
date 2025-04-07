@@ -34,7 +34,7 @@ This repository uses a specific structure for safe and effective use. Using sepa
 1.  **Fork this Repository:** Click the "Fork" button on GitHub.
 2.  **Clone Your Fork:** Clone your newly created fork to your local machine.
     ```bash
-    git clone https://github.com/YourUsername/YourRepoName.git
+    git clone https://github.com/your-username/repo-name.git
     cd YourRepoName
     ```
 3.  **Create a Working Branch:** Create and switch to a branch where you will store your configuration (e.g., `personal`).
@@ -45,7 +45,7 @@ This repository uses a specific structure for safe and effective use. Using sepa
 4.  **Edit `script.sh`:**
     *   Open `script.sh` in a text editor.
     *   Locate the `CONFIGURATION` section near the top.
-    *   **Crucially, change the `REPO_RAW_BASE_URL` variable.** Replace the placeholder `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main` with the correct raw URL pointing to *this working branch* in *your fork*. For example: `https://raw.githubusercontent.com/YourUsername/YourRepoName/personal`.
+    *   **Crucially, change the `REPO_RAW_BASE_URL` variable.** Replace the placeholder `https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main` with the correct raw URL pointing to *this working branch* in *your fork*. For example: `https://raw.githubusercontent.com/hellocharli/auserlese/aura/`.
     *   (Optional) Change the `ANSIBLE_USER` variable if you don't want to use `ansible`.
     *   (Optional) Change `PUBLIC_KEY_FILENAME` only if you intend to rename the `key` file.
 5.  **Edit `key` file:**
@@ -76,7 +76,7 @@ This repository uses a specific structure for safe and effective use. Using sepa
 
     ```bash
     # Replace the URL with the Raw URL of script.sh from YOUR configured branch/fork!
-    curl -fsSL https://raw.githubusercontent.com/username/repo-name/branch-name/script.sh | sudo bash
+    curl -fsSL https://raw.githubusercontent.com/your-username/repo-name/branch-name/script.sh | sudo bash
     ```
 
 3.  **Verify:** After the script completes, attempt to SSH into the target machine from your Ansible control node using the configured user and the corresponding private SSH key:
