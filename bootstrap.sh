@@ -123,7 +123,7 @@ if id "${ANSIBLE_USER}" &>/dev/null; then
     USER_HOME=$(eval echo ~"${ANSIBLE_USER}")
 else
     log "Creating user ${ANSIBLE_USER}..."
-    useradd --create-home --shell /bin/bash "${ANSIBLE_USER}"
+    useradd --create-home --shell /bin/bash --system "${ANSIBLE_USER}"
     USER_HOME=$(eval echo ~"${ANSIBLE_USER}")
     log "User ${ANSIBLE_USER} created with home directory ${USER_HOME}."
     # Explicitly disable password auth. This should be default with a blank password
